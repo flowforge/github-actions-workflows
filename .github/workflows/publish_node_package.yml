@@ -36,6 +36,10 @@ on:
         required: false
         type: string
         default: '.'
+    secrets:
+      token:
+        description: 'GitHub token'
+        required: true
     outputs:
       release_name:
         description: 'Name of the release.'
@@ -96,4 +100,5 @@ jobs:
           package: ${{ inputs.working_directory }}/package.json
           ignore-scripts: ${{ inputs.publish_ignore_scripts }}
           registry: https://npm.pkg.github.com
-          token: ${{ secrets.GITHUB_TOKEN }}
+          # token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.token }}
