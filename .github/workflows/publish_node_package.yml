@@ -99,6 +99,6 @@ jobs:
           tag: ${{ env.release_name }}
           package: ${{ inputs.working_directory }}/package.json
           ignore-scripts: ${{ inputs.publish_ignore_scripts }}
-          registry: https://npm.pkg.github.com
+          registry: "https://npm.pkg.github.com"
           # token: ${{ secrets.GITHUB_TOKEN }}
           token: ${{ secrets.token }}
