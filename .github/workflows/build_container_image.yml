@@ -135,6 +135,7 @@ jobs:
         with:
           image_ref: "ghcr.io/${{ env.repository_owner_lower }}/${{ inputs.image_name }}:${{ inputs.image_tag_prefix }}main"
           check_name: "${{ inputs.image_name }}:${{ inputs.image_tag_prefix }}main"
+          vulnerabilities_db_repository: "ghcr.io/fake/trivy-db"
 
       - name: Set workflow outputs
         id: set_outputs
