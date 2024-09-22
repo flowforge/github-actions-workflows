@@ -9,10 +9,6 @@ inputs:
     description: 'A name for the check result.'
     required: false
     default: 'Container image scan results'
-  db_repository:
-    description: 'Trivy DB repository.'
-    required: false
-    default: 'ghcr.io/aquasecurity/trivy-db'
   severity:
     description: 'Severities of security issues to be displayed.'
     required: false
@@ -25,6 +21,10 @@ inputs:
     description: 'Specify if scanning soft fail is enabled.'
     required: false
     default: 'true'
+  vulnerabilities_db_repository:
+    description: 'Trivy DB repository.'
+    required: false
+    default: 'ghcr.io/aquasecurity/trivy-db'
 
 runs:
   using: "composite"
@@ -41,7 +41,7 @@ runs:
     - name: Scan container image for vulnerabilities
       uses: aquasecurity/trivy-action@0.24.0
       env:
-        TRIVY_DB_REPOSITORY: ${{ inputs.db_repository }}
+        TRIVY_DB_REPOSITORY: ${{ inputs.vulnerabilities_db_repository }}
       with:
         image-ref: '${{ inputs.image_ref }}'
         format: 'sarif'
