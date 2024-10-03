@@ -158,6 +158,7 @@ jobs:
         if: ${{ inputs.publish_package }}
         working-directory: ${{ inputs.working_directory }}
         run: |
-          npm publish ${{ env.NPM_PUBLISH_PARAMETERS }} --tag ${{ env.release_name }}
+          pwd
+          # npm publish ${{ env.NPM_PUBLISH_PARAMETERS }} --tag ${{ env.release_name }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.npm_registry_token }}
