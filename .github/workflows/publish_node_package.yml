@@ -13,6 +13,11 @@ on:
         required: false
         type: boolean
         default: false
+      checkout_path:
+        description: 'Path to checkout the repository'
+        type: string
+        required: false
+        default: '.'
       disable_ignore_scripts_on_publish:
         description: 'If false, add --ignore-scripts flag to npm publish command'
         required: false
@@ -89,7 +94,7 @@ jobs:
         with:
           repository: ${{ inputs.repository_name }}
           ref: ${{ inputs.branch_name }}
-          path: ${{ inputs.working_directory}}
+          path: ${{ inputs.checkout_path}}
 
       - name: Set release name
         id: set_release_name
