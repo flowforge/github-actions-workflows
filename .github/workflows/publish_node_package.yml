@@ -159,6 +159,6 @@ jobs:
         working-directory: ${{ inputs.working_directory }}
         run: |
           pwd
-          # npm publish ${{ env.NPM_PUBLISH_PARAMETERS }} --tag ${{ env.release_name }}
+          npm publish ${{ env.NPM_PUBLISH_PARAMETERS }} --tag ${{ env.release_name }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.npm_registry_token }}
